@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700&family=Comfortaa:wght@400;500;600;700&display=swap');
 
 body {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Comfortaa', 'Quicksand', sans-serif;
   background-color: #fef6ff;
   color: #4a3f5a;
   overflow-x: hidden;
 }
 
 h1, h2, h3 {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Comfortaa', 'Nunito', sans-serif;
+  font-weight: 700;
 }
 
 .page {
