@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js"></script>
 </head>
-<body x-data="{ activePage: 'home', projectFilter: 'all' }">
+<body x-data="{ activePage: 'home', devProjectFilter: 'all', secProjectFilter: 'all', activeTab: 'develop' }">
   <!-- header -->
   <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-10">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -24,13 +24,11 @@
       </div>
     </div>
   </header>
-
   <!-- Bubble decoration (background elements) -->
   <div class="bubble" style="width: 100px; height: 100px; top: 10%; left: 5%;"></div>
   <div class="bubble" style="width: 150px; height: 150px; top: 40%; right: 10%;"></div>
   <div class="bubble" style="width: 80px; height: 80px; top: 70%; left: 15%;"></div>
   <div class="bubble" style="width: 120px; height: 120px; bottom: 15%; right: 15%;"></div>
-
   <!-- main -->
   <main class="container mx-auto px-4 pt-16 pb-20">
     <!-- Home -->
@@ -46,33 +44,36 @@
         <h2 class="text-3xl font-bold text-purple-700 mb-2">Towa Higashi</h2>
         <p class="text-purple-500 text-center mb-4">Cloud / Security / Development</p>
         <div class="flex space-x-4 mb-8">
-          <a href="https://github.com/towaos" class="text-purple-500 hover:text-purple-700 transform hover:scale-110 transition-all">
+          <a href="https://github.com/towaos" class="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-all">
             <i class="fab fa-github text-2xl"></i>
           </a>
-          <a href="https://x.com/_towaos" class="text-pink-400 hover:text-pink-600 transform hover:scale-110 transition-all">
+          <a href="https://x.com/_towaos" class="text-blue-400 hover:text-blue-500 transform hover:scale-110 transition-all">
             <i class="fab fa-twitter text-2xl"></i>
           </a>
-          <a href="https://www.linkedin.com/in/towaos" class="text-blue-400 hover:text-blue-600 transform hover:scale-110 transition-all">
+          <a href="https://www.linkedin.com/in/towaos" class="text-pink-400 hover:text-pink-500 transform hover:scale-110 transition-all">
             <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a href="https://towaos.medium.com" class="text-yellow-400 hover:text-yellow-500 transform hover:scale-110 transition-all">
+            <i class="fab fa-medium text-2xl"></i>
           </a>
         </div>
         <div class="bg-white rounded-3xl shadow-lg p-6 w-full border-4 border-purple-200 relative overflow-hidden">
           <div class="absolute -top-4 -right-4 w-16 h-16 bg-yellow-300 rounded-full opacity-50"></div>
           <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-blue-300 rounded-full opacity-50"></div>
           <p class="text-purple-800 leading-relaxed relative">
-            I enjoy working with AWS for infrastructure building and development. 
-            I'm also interested in Penetration Testing and Bug Bounty, and I'm learning through platforms like HTB.
+            I enjoy working with cloud environments, particularly AWS, and am involved in infrastructure construction and software development. 
+            Additionally, I have a strong interest in penetration testing and bug bounty programs. I hone my practical skills through platforms like HackTheBox and CTF competitions. 
+            In the future, I aim to become a specialist in cloud infrastructure and security.          
           </p>
         </div>
       </div>
     </div>
-
     <!-- Profile -->
     <div id="profile" class="page" :class="{ 'active': activePage === 'profile' }">
       <div class="py-6">
         <h2 class="text-3xl font-bold text-purple-700 mb-6 monster-header">Profile</h2>
         
-        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-pink-200 relative">
+        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-pink-200 relative overflow-hidden">
           <div class="absolute -top-5 -left-5 w-10 h-10 bg-pink-400 rounded-full opacity-70"></div>
           
           <h3 class="text-xl font-semibold text-purple-700 mb-3 relative">
@@ -80,12 +81,14 @@
             About Me
           </h3>
           <p class="text-purple-800 leading-relaxed mb-4">
-            After graduating from university, I attended a specialized IT school where I studied cloud computing, security, and development. I'm particularly interested in infrastructure building with AWS and penetration testing techniques, and I'm continuously working on practical learning.
-            I'm also interested in iOS app development and studying app development using Flutter. My goal is to release my own app in the future.
-            I actively participate in CTFs, AtCoder, and hackathons to deepen my knowledge of competitive programming and security. Through hackathons, I've gained experience in team development, working on backend and security measures.
-            In the future, I aim to specialize in cloud infrastructure and security, leveraging my knowledge in these areas.
-          </p>
-          
+            After graduating from university, I am attending a technical school in the IT field, studying a wide range of subjects including security, cloud technologies, and development. I am particularly interested in infrastructure building using AWS (EC2, Lambda, S3, etc.) and penetration testing/vulnerability assessment techniques, and I continue to engage in practical learning every day.          </p>
+          <p class="text-purple-800 leading-relaxed mb-4">
+            I am also interested in Web and iOS app development, and am studying app development using Next.js and Flutter. Through both individual and team development projects, I have deployed applications and gained experience operating them at school events. In team development, I primarily handled environment setup and backend development, focusing on effective communication between team members.          </p>
+          <p class="text-purple-800 leading-relaxed mb-4">
+            I actively participate in security technology contests (CTF), hackathons, and programming competitions (AtCoder) to deepen my knowledge of security and algorithms. Particularly in hackathons, I participated as part of a team and gained experience in collaborating with team members to create high-quality deliverables in a short period of time.          </p>
+          <p class="text-purple-800 leading-relaxed mb-4">
+            In the future, I aim to leverage my knowledge of cloud technology and security to become a specialist in cloud infrastructure and security.
+          </p>          
           <h3 class="text-xl font-semibold text-purple-700 mb-3 relative">
             <span class="inline-block w-4 h-4 bg-blue-400 rounded-full mr-2 align-middle"></span>
             Skills
@@ -101,11 +104,12 @@
               <span class="skill-tag">Python</span>
               <span class="skill-tag">Django</span>
               <span class="skill-tag">Go</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Remix</span>
               <span class="skill-tag">Terraform</span>
               <span class="skill-tag">Docker</span>
             </div>
           </div>
-          
           <h3 class="text-xl font-semibold text-purple-700 mb-3 relative">
             <span class="inline-block w-4 h-4 bg-green-400 rounded-full mr-2 align-middle"></span>
             Certifications & Awards
@@ -133,6 +137,10 @@
             </li>
             <li class="flex items-center">
               <span class="inline-block w-3 h-3 bg-purple-300 rounded-full mr-2"></span>
+              Registered Dietitian
+            </li>
+            <li class="flex items-center">
+              <span class="inline-block w-3 h-3 bg-purple-300 rounded-full mr-2"></span>
               2025-03.Progate Hackathon (Special Award)
             </li>
             <li class="flex items-center">
@@ -143,38 +151,52 @@
         </div>
       </div>
     </div>
-
     <!-- Project list -->
     <div id="projects" class="page" :class="{ 'active': activePage === 'projects' }">
       <div class="py-6">
         <h2 class="text-3xl font-bold text-purple-700 mb-6 monster-header">Projects</h2>
-        <!-- Filter buttons -->
-        <div class="flex space-x-2 mb-6">
-          <button @click="projectFilter = 'all'" 
-                  class="px-4 py-2 rounded-full text-sm transition-all duration-200"
-                  :class="projectFilter === 'all' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+        <!-- Tab navigation -->
+        <div class="mb-6 border-b border-gray-200">
+          <div class="flex overflow-x-auto">
+            <button @click="activeTab = 'develop'" class="px-6 py-3 text-sm font-medium transition-all duration-200 border-b-2" :class="activeTab === 'develop' ? 'text-purple-700 border-purple-500' : 'text-gray-500 border-transparent hover:text-purple-500 hover:border-purple-300'">
+              Develop
+            </button>
+            <button @click="activeTab = 'security'" class="px-6 py-3 text-sm font-medium transition-all duration-200 border-b-2" :class="activeTab === 'security' ? 'text-purple-700 border-purple-500' : 'text-gray-500 border-transparent hover:text-purple-500 hover:border-purple-300'">
+              Security
+            </button>
+          </div>
+        </div>
+        <!-- Tab filter -->
+        <div x-show="activeTab === 'develop'" class="flex space-x-2 mb-6">
+          <button @click="devProjectFilter = 'all'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="devProjectFilter === 'all' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
             All
           </button>
-          <button @click="projectFilter = 'team'" 
-                  class="px-4 py-2 rounded-full text-sm transition-all duration-200"
-                  :class="projectFilter === 'team' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
-            Team Projects
+          <button @click="devProjectFilter = 'team'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="devProjectFilter === 'team' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            Team
           </button>
-          <button @click="projectFilter = 'personal'" 
-                  class="px-4 py-2 rounded-full text-sm transition-all duration-200"
-                  :class="projectFilter === 'personal' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
-            Personal Projects
+          <button @click="devProjectFilter = 'personal'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="devProjectFilter === 'personal' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            Personal
           </button>
-        </div>    
-        <div class="grid grid-cols-1 gap-6">
-          <!-- Project 01 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'team'"
-              @click="activePage = 'project-01'">
+        </div>        
+        <div x-show="activeTab === 'security'" class="flex space-x-2 mb-6">
+          <button @click="secProjectFilter = 'all'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'all' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            All
+          </button>
+          <button @click="secProjectFilter = 'hackthebox'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'hackthebox' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            HTB
+          </button>
+          <button @click="secProjectFilter = 'ctf'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'ctf' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            CTF
+          </button>
+        </div>
+        <!-- Develop contents -->
+        <div x-show="activeTab === 'develop'" class="grid grid-cols-1 gap-6">
+          <!-- dev-project-01 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'team'" @click="activePage = 'dev-project-01'">
             <div class="relative">
               <img src="images/pending.png" alt="Project 1" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                Team Project
+                Team
               </div>
             </div>
             <div class="p-5">
@@ -190,16 +212,13 @@
                 It can be hosted for school events and provides a good starting point for students learning about security.
               </p>
             </div>
-          </div>
-                    
-          <!-- Project 02 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'team'"
-              @click="activePage = 'project-02'">
+          </div>                 
+          <!-- dev-project-02 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'team'" @click="activePage = 'dev-project-02'">
             <div class="relative">
               <img src="images/pending.png" alt="Project 2" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                Team Project
+                Team
               </div>
             </div>
             <div class="p-5">
@@ -216,15 +235,12 @@
               </p>
             </div>
           </div>
-
-          <!-- Project 03 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'team'"
-              @click="activePage = 'project-03'">
+          <!-- dev-project-03 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'team'" @click="activePage = 'dev-project-03'">
             <div class="relative">
               <img src="images/pending.png" alt="Project 3" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                Team Project
+                Team
               </div>
             </div>
             <div class="p-5">
@@ -240,15 +256,12 @@
               </p>
             </div>
           </div>
-
-          <!-- Project 04 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'personal'"
-              @click="activePage = 'project-04'">
+          <!-- dev-project-04 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'personal'" @click="activePage = 'dev-project-04'">
             <div class="relative">
               <img src="images/pending.png" alt="Project 4" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                Personal Project
+                Personal
               </div>
             </div>
             <div class="p-5">
@@ -262,26 +275,90 @@
                 An order and inventory management system using Django.
               </p>
             </div>
+          </div> 
+        </div>
+        <!-- Security contents -->
+        <div x-show="activeTab === 'security'" class="grid grid-cols-1 gap-6">
+          <!-- sec-project-01 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'ctf'" @click="activePage = 'sec-project-01'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                CTF
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">PicoCTF.2025</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                I wrote the writeup for PicoCTF 2025.
+              </p>
+            </div>
+          </div>      
+          <!-- sec-project-02 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'hackthebox'" @click="activePage = 'sec-project-02'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                HTB
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">HTB.S7 - Code</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                I completed HackTheBox Season 7 Code (easy). Once Season 7 is over, I plan to write a writeup.
+              </p>
+            </div>
           </div>
-          
+          <!-- sec-project-03 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'hackthebox'" @click="activePage = 'sec-project-03'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                HTB
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">HTB.S7 - UnderPass</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                I completed HackTheBox Season 7 UnderPass (easy). Once Season 7 is over, I plan to write a writeup.
+              </p>
+            </div>
+          </div>
+          <!-- sec-project-04 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'hackthebox'" @click="activePage = 'sec-project-04'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                HTB
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">HTB.S7 - Titanic</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                I completed HackTheBox Season 7 Titanic (easy). Once Season 7 is over, I plan to write a writeup.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <!-- Project-detail -->
-    <!-- Project-01 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-01' }">
+    <!-- Develop -->
+    <!-- dev-project-01 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-01' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> Back
         </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">RaidersCTF.2025</h2>
-        
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">RaidersCTF.2025</h2>        
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="Project01" class="w-full h-56 object-cover">
           <div class="p-6">
-            <div class="flex flex-wrap mb-4">
+            <div class="flex flex-wrap mb-4 text-purple-800">
               <span class="skill-tag">Next.js</span>
               <span class="skill-tag">Go</span>
               <span class="skill-tag">Cognito</span>
@@ -292,32 +369,28 @@
               <span class="skill-tag">ECR/ECS</span>
               <span class="skill-tag">Amplify</span>
               <span class="skill-tag">Route53</span>
-          </div>
-            
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">System Overview</h3>
-          <p class="text-gray-700 leading-relaxed mb-4">
-            Authentication uses <span class="font-semibold">Cognito</span>, and  
-            <span class="font-semibold">DynamoDB</span> manages user and challenge information.  
-            <span class="font-semibold">Lambda</span> handles authentication and challenge server startup/shutdown,  
-            while <span class="font-semibold">StepFunctions</span> manages challenge server uptime.  
-            <span class="font-semibold">ECS</span> launches tasks from images stored in <span class="font-semibold">ECR</span>.
-          </p>
-          
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenges Addressed</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            </div>            
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">System Overview</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              Authentication uses <span class="font-semibold">Cognito</span>, and  
+              <span class="font-semibold">DynamoDB</span> manages user and challenge information.  
+              <span class="font-semibold">Lambda</span> handles authentication and challenge server startup/shutdown,  
+              while <span class="font-semibold">StepFunctions</span> manages challenge server uptime.  
+              <span class="font-semibold">ECS</span> launches tasks from images stored in <span class="font-semibold">ECR</span>.
+            </p>            
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
               <li>Simplified authentication using only name and password for signin/signup</li>
               <li>Cost optimization by setting LunchTime to 15 minutes</li>
               <li>Creating challenges across multiple fields using Docker only</li>
               <li>Efficient management leveraging DynamoDB's characteristics</li>
               <li>Mobile responsive design</li>
             </ul>
-            
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="#" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> View on GitHub (Coming Soon)
               </a>
-              <a href="https://raidersctf.com" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
+              <a href="https://raidersctf.com" class="bg-gray-200 text-purple-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fas fa-external-link-alt mr-2"></i> View Demo Site
               </a>
             </div>
@@ -325,19 +398,17 @@
         </div>
       </div>
     </div>
-    <!-- Project-02 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-02' }">
+    <!-- dev-project-02 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-02' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> Back
         </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">HexarkALG.2026</h2>
-        
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">HexarkALG.2026</h2>
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="Project Details" class="w-full h-56 object-cover">
           <div class="p-6">
-            <div class="flex flex-wrap mb-4">
+            <div class="flex flex-wrap mb-4 text-purple-800">
               <span class="skill-tag">Next.js</span>
               <span class="skill-tag">Go</span>
               <span class="skill-tag">Cognito</span>
@@ -349,9 +420,8 @@
               <span class="skill-tag">Amplify</span>
               <span class="skill-tag">Route53</span>
             </div>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">System Overview</h3>
-            <p class="text-gray-700 leading-relaxed mb-4">
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">System Overview</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
               Authentication uses <span class="font-semibold">Cognito</span>, and
               <span class="font-semibold">DynamoDB</span> manages user and problem information.
               Code uploads to <span class="font-semibold">S3</span> trigger
@@ -359,21 +429,19 @@
               <span class="font-semibold">StepFunctions</span> manage Web Editor uptime.
               <span class="font-semibold">ECS</span> launches tasks from images stored in <span class="font-semibold">ECR</span>.
               </p>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenges Addressed</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
               <li>Simplified authentication using only name and password for signin/signup</li>
               <li>Cost optimization by setting EditerTime to 60 minutes</li>
               <li>Using CodeServer and LSP for the editor</li>
               <li>Creating execution environments for multiple programming languages</li>
               <li>Efficient management leveraging DynamoDB's characteristics</li>
-            </ul>
-            
+            </ul>            
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="#" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> View on GitHub (Coming Soon)
               </a>
-              <a href="#" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
+              <a href="#" class="bg-gray-200 text-purple-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fas fa-external-link-alt mr-2"></i> View Demo Site (Coming Soon)
               </a>
             </div>
@@ -381,15 +449,13 @@
         </div>
       </div>
     </div>
-    <!-- Project-03 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-03' }">
+    <!-- dev-project-03 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-03' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> Back
-        </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">HexarkCTF.2026</h2>
-        
+        </button>        
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">HexarkCTF.2026</h2>        
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="Project Details" class="w-full h-56 object-cover">
           <div class="p-6">
@@ -406,24 +472,21 @@
               <span class="skill-tag">EC2</span>
               <span class="skill-tag">Amplify</span>
               <span class="skill-tag">Route53</span>
-            </div>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">System Overview</h3>
-            <p class="text-gray-700 leading-relaxed mb-4">
+            </div>            
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">System Overview</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
               A renewal of RaidersCTF.2025, planning to implement Windows environment challenges
               that are difficult to achieve with Docker by using VirtualBox on EC2 via VPN.
-            </p>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenges Addressed</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            </p>           
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
               <li>Using VPN and EC2 to support more complex challenges</li>
-            </ul>
-            
+            </ul>           
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="#" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> View on GitHub (Coming Soon)
               </a>
-              <a href="#" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
+              <a href="#" class="bg-gray-200 text-purple-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fas fa-external-link-alt mr-2"></i> View Demo Site (Coming Soon)
               </a>
             </div>
@@ -431,35 +494,30 @@
         </div>
       </div>
     </div>
-    <!-- Project-04 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-04' }">
+    <!-- dev-project-04 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-04' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> Back
-        </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">SikkariApp</h2>
-        
+        </button>       
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">SikkariApp</h2>        
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="Project Details" class="w-full h-56 object-cover">
           <div class="p-6">
             <div class="flex flex-wrap mb-4">
               <span class="skill-tag">Django</span>
               <span class="skill-tag">MySQL</span>
-            </div>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">System Overview</h3>
-            <p class="text-gray-700 leading-relaxed mb-4">
+            </div>            
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">System Overview</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
               A simple system using only Django and MySQL.
               It has only been implemented locally.
               This was done to learn the framework.
-            </p>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenges Addressed</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            </p>           
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
               <li>First development project using Django</li>
-            </ul>
-            
+            </ul>            
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="https://github.com/towaos/oca-django-app" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> View on GitHub
@@ -469,14 +527,154 @@
         </div>
       </div>
     </div>
-
-
+    <!-- Security -->
+    <!-- sec-project-01 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-01' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> Back
+        </button>
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">PicoCTF.2025</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">About the blog</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              I post writeup and related articles on Medium.
+            </p>
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Thoughts & Learnings</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              I remember that during last year's PicoCTF 2024, I could barely handle anything outside the General category.
+              However, this year, after participating in various CTFs in addition to PicoCTF and gaining hands-on experience, I've become more comfortable tackling other categories like Web and Reverse Engineering.
+              Moving forward, I aim to solve all challenges and will continue studying consistently to reach that goal.
+            </p>
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
+              <li>How to Use Ghidra</li>
+              <li>How to Identify the Hash Value</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> View on Medium (Coming Soon)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sec-project-02 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-02' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> Back
+        </button>
+        <h2 class="text-2xl font-bold mb-4">HTB.S7 - Code</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">About the blog</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              I post writeup and related articles on Medium.
+              I'll update the article once Season 7 is over.
+            </p>  
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Thoughts & Learnings</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              In this task, a Python execution environment was provided, and I attempted to use os.system and eval, but both were blocked due to filtering.
+              As an alternative, I focused on debugging code and was able to gather several hints from it.
+              Through this process, I deepened my understanding of the filtering mechanisms and how to utilize debugging code, making it a valuable learning experience.
+            </p>
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
+              <li>How to Use Debugging Code in Python</li>
+              <li>Using SQLite Commands with Python</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> View on Medium (Coming Soon)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sec-project-03 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-03' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> Back
+        </button>
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">HTB.S7 - UnderPass</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">About the blog</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              I post writeup and related articles on Medium.
+              I'll update the article once Season 7 is over.
+            </p>  
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Thoughts & Learnings</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              This task was related to SNMP, which uses UDP instead of the typical TCP. 
+              Since I had already studied the relevant areas in HackTheBox Academy beforehand, I was able to approach the initial steps relatively smoothly. 
+              Additionally, during the privilege escalation process, I had the opportunity to work with the mosh-server, which helped me deepen my understanding of its vulnerabilities.
+            </p>
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
+              <li>How to use the SNMP Commands for Investigation</li>
+              <li>How to Use the Gobuster Command</li>
+              <li>Difference between Mosh and SSH</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> View on Medium (Coming Soon)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sec-project-04 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-04' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> Back
+        </button>
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">HTB.S7 - Titanic</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">About the blog</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              I post writeup and related articles on Medium.
+              I'll update the article once Season 7 is over.
+            </p>  
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Thoughts & Learnings</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              This task started with a directory traversal vulnerability. I progressed step by step, leveraging the characteristics of Gitea and SQLite.
+              As for privilege escalation, it was a relatively unfamiliar area for me, and I struggled a bit. However, it provided many new insights and was a valuable learning experience.
+              Since I can't say I fully understand it yet, I plan to revisit it and deepen my understanding through another attempt.            
+            </p>
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">Challenges Addressed</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
+              <li>How to Perform Directory Traversal</li>
+              <li>How to use SQLite commands</li>
+              <li>Understanding Vulnerabilities to Exploit Preloading of Shared Libraries</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> View on Medium (Coming Soon)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Contact -->
     <div id="contact" class="page" :class="{ 'active': activePage === 'contact' }">
       <div class="py-6">
         <h2 class="text-3xl font-bold text-purple-700 mb-6 monster-header">Contact</h2>
         
-        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-blue-200 relative">
+        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-blue-200 relative overflow-hidden">
           <div class="absolute -top-5 -right-5 w-16 h-16 bg-pink-300 rounded-full opacity-50 z-0"></div>
           <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-yellow-300 rounded-full opacity-40 z-0"></div>
           
@@ -495,16 +693,13 @@
           <div class="relative mt-8 text-center">
             <h3 class="text-xl font-semibold text-purple-700 mb-4">Connect on Social Media</h3>
             <div class="flex justify-center space-x-6">
-              <a href="https://github.com/towaos" class="text-blue-500 hover:text-blue-700 transform hover:scale-125 transition-all">
-                <i class="fab fa-github text-2xl"></i>
-              </a>
-              <a href="https://x.com/_towaos" class="text-pink-500 hover:text-pink-700 transform hover:scale-125 transition-all">
+              <a href="https://x.com/_towaos" class="text-blue-400 hover:text-blue-500 transform hover:scale-125 transition-all">
                 <i class="fab fa-twitter text-2xl"></i>
               </a>
-              <a href="https://www.linkedin.com/in/towaos" class="text-purple-500 hover:text-purple-700 transform hover:scale-125 transition-all">
+              <a href="https://www.linkedin.com/in/towaos" class="text-pink-400 hover:text-pink-500 transform hover:scale-125 transition-all">
                 <i class="fab fa-linkedin text-2xl"></i>
               </a>
-              <a href="https://www.instagram.com/_towaos" class="text-yellow-500 hover:text-yellow-700 transform hover:scale-125 transition-all">
+              <a href="https://www.instagram.com/_towaos" class="text-yellow-400 hover:text-yellow-500 transform hover:scale-125 transition-all">
                 <i class="fab fa-instagram text-2xl"></i>
               </a>
             </div>
@@ -538,4 +733,3 @@
   </footer>
 </body>
 </html>
-

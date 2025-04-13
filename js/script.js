@@ -1,25 +1,25 @@
-document.addEventListener('alpine:init', () => {
-  const bubbles = document.querySelectorAll('.bubble');
-  bubbles.forEach(bubble => {
-    animateBubble(bubble);
-  });
+// document.addEventListener('alpine:init', () => {
+//   const bubbles = document.querySelectorAll('.bubble');
+//   bubbles.forEach(bubble => {
+//     animateBubble(bubble);
+//   });
   
-  function animateBubble(bubble) {
-    const speed = Math.random() * 10 + 5;
-    const direction = Math.random() > 0.5 ? 1 : -1;
+//   function animateBubble(bubble) {
+//     const speed = Math.random() * 10 + 5;
+//     const direction = Math.random() > 0.5 ? 1 : -1;
     
-    let position = parseInt(bubble.style.top);
+//     let position = parseInt(bubble.style.top);
     
-    setInterval(() => {
-      position += (Math.random() * 0.5) * direction;
-      bubble.style.top = `${position}%`;
+//     setInterval(() => {
+//       position += (Math.random() * 0.5) * direction;
+//       bubble.style.top = `${position}%`;
       
-      if (position > 90 || position < 5) {
-        position = Math.random() * 80 + 10;
-      }
-    }, speed * 100);
-  }
-});
+//       if (position > 90 || position < 5) {
+//         position = Math.random() * 80 + 10;
+//       }
+//     }, speed * 100);
+//   }
+// });
 
 document.addEventListener('DOMContentLoaded', function() {
   const langSwitch = document.getElementById('langSwitch');
@@ -51,4 +51,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+});
+
+document.addEventListener('alpine:init', () => {
+  Alpine.data('portfolio', () => ({
+    activePage: 'home',
+    devProjectFilter: 'all',
+    secProjectFilter: 'all',
+    activeTab: 'develop',
+    
+    init() {
+      this.$watch('activeTab', (value) => {
+        if (value === 'develop') {
+          this.devProjectFilter = 'all';
+        } else if (value === 'security') {
+          this.secProjectFilter = 'all';
+        }
+      });
+    }
+  }))
 });

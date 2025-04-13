@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js"></script>
 </head>
-<body x-data="{ activePage: 'home', projectFilter: 'all' }">
+<body x-data="{ activePage: 'home', devProjectFilter: 'all', secProjectFilter: 'all', activeTab: 'develop' }">
   <!-- header -->
   <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-10">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -24,13 +24,11 @@
       </div>
     </div>
   </header>
-
   <!-- Bubble decoration (background elements) -->
   <div class="bubble" style="width: 100px; height: 100px; top: 10%; left: 5%;"></div>
   <div class="bubble" style="width: 150px; height: 150px; top: 40%; right: 10%;"></div>
   <div class="bubble" style="width: 80px; height: 80px; top: 70%; left: 15%;"></div>
   <div class="bubble" style="width: 120px; height: 120px; bottom: 15%; right: 15%;"></div>
-
   <!-- main -->
   <main class="container mx-auto px-4 pt-16 pb-20">
     <!-- Home -->
@@ -46,33 +44,35 @@
         <h2 class="text-3xl font-bold text-purple-700 mb-2">東 永久</h2>
         <p class="text-purple-500 text-center mb-4">クラウド / セキュリティ / 開発</p>
         <div class="flex space-x-4 mb-8">
-          <a href="https://github.com/towaos" class="text-purple-500 hover:text-purple-700 transform hover:scale-110 transition-all">
+          <a href="https://github.com/towaos" class="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-all">
             <i class="fab fa-github text-2xl"></i>
           </a>
-          <a href="https://x.com/_towaos" class="text-pink-400 hover:text-pink-600 transform hover:scale-110 transition-all">
+          <a href="https://x.com/_towaos" class="text-blue-400 hover:text-blue-500 transform hover:scale-110 transition-all">
             <i class="fab fa-twitter text-2xl"></i>
           </a>
-          <a href="https://www.linkedin.com/in/towaos" class="text-blue-400 hover:text-blue-600 transform hover:scale-110 transition-all">
+          <a href="https://www.linkedin.com/in/towaos" class="text-pink-400 hover:text-pink-500 transform hover:scale-110 transition-all">
             <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a href="https://towaos.medium.com" class="text-yellow-400 hover:text-yellow-500 transform hover:scale-110 transition-all">
+            <i class="fab fa-medium text-2xl"></i>
           </a>
         </div>
         <div class="bg-white rounded-3xl shadow-lg p-6 w-full border-4 border-purple-200 relative overflow-hidden">
           <div class="absolute -top-4 -right-4 w-16 h-16 bg-yellow-300 rounded-full opacity-50"></div>
           <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-blue-300 rounded-full opacity-50"></div>
           <p class="text-purple-800 leading-relaxed relative">
-            AWSを触るのが好きでAWSを使ったインフラ構築や開発を行っています。
-            ペネトレーションテストやバグバウンティにも興味がありHTBなどを活用して学習しています。
+            AWSをはじめとするクラウド環境を触るのが好きでインフラ構築やソフトウェア開発を行っています。
+            さらに、ペネトレーションテストやバグバウンティにも強い関心を持っています。HackTheBoxやCTFなどを活用して実践的なスキルを磨いています。
+            将来的には、クラウドインフラやセキュリティのスペシャリストを目指しています。
           </p>
         </div>
       </div>
     </div>
-
     <!-- Profile -->
     <div id="profile" class="page" :class="{ 'active': activePage === 'profile' }">
       <div class="py-6">
         <h2 class="text-3xl font-bold text-purple-700 mb-6 monster-header">プロフィール</h2>
-        
-        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-pink-200 relative">
+        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-pink-200 relative overflow-hidden">
           <div class="absolute -top-5 -left-5 w-10 h-10 bg-pink-400 rounded-full opacity-70"></div>
           
           <h3 class="text-xl font-semibold text-purple-700 mb-3 relative">
@@ -80,12 +80,17 @@
             自己紹介
           </h3>
           <p class="text-purple-800 leading-relaxed mb-4">
-            大学卒業後、IT分野の専門学校に通い、クラウド、セキュリティ、開発について幅広く学んでいます。特にAWSを活用したインフラ構築や、ペネトレーションテストの技術に興味があり、日々実践的な学習を進めています。
-            また、iOSアプリ開発にも関心があり、Flutterを使ってアプリ開発の勉強をしています。今後は実際にアプリをリリースすることを目標にしています。
-            CTFやAtCoder、ハッカソンにも積極的に参加し、競技プログラミングやセキュリティの知識を深めています。ハッカソンではチーム開発を経験し、バックエンドやセキュリティ対策にも携わりました。
-            将来的には、クラウド技術やセキュリティの知識を活かしつつ、クラウドインフラ・セキュリティを専門に活躍したいと考えています。
+            私は大学卒業後、IT分野の専門学校に通い、セキュリティ、クラウド、開発について幅広く学習しています。特にAWSを活用したインフラ構築(EC2、Lambda、S3など)や、ペネトレーションテスト・脆弱性診断の技術に興味があり、日々実践的な学習を進めています。
           </p>
-          
+          <p class="text-purple-800 leading-relaxed mb-4">
+            Webや iOS アプリの開発にも関心があり、Next.jsやFlutterなどを使用してアプリ開発の勉強をしています。個人開発やチーム開発では実際にアプリをデプロイし、学校のイベントでの運用も経験しました。チーム開発では主に環境構築やバックエンドを担当し、メンバー間のコミュニケーションを重視して開発を行いました。
+          </p>
+          <p class="text-purple-800 leading-relaxed mb-4">
+            セキュリティ技術コンテスト(CTF)やハッカソン、プログラミングコンテスト(AtCoder)にも積極的に参加し、セキュリティやアルゴリズムの知識を深めています。特にハッカソンではチームで参加し、短期間でメンバーと連携して質の高い成果物を作り上げる経験を積みました。
+          </p>
+          <p class="text-purple-800 leading-relaxed mb-4">
+            将来的には、クラウド技術やセキュリティの知識を活かし、クラウドインフラおよびセキュリティ分野のスペシャリストとして活躍したいと考えています。
+          </p>
           <h3 class="text-xl font-semibold text-purple-700 mb-3 relative">
             <span class="inline-block w-4 h-4 bg-blue-400 rounded-full mr-2 align-middle"></span>
             スキルセット
@@ -101,11 +106,12 @@
               <span class="skill-tag">Python</span>
               <span class="skill-tag">Django</span>
               <span class="skill-tag">Go</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Remix</span>
               <span class="skill-tag">Terraform</span>
               <span class="skill-tag">Docker</span>
             </div>
           </div>
-          
           <h3 class="text-xl font-semibold text-purple-700 mb-3 relative">
             <span class="inline-block w-4 h-4 bg-green-400 rounded-full mr-2 align-middle"></span>
             資格・受賞歴
@@ -133,6 +139,10 @@
             </li>
             <li class="flex items-center">
               <span class="inline-block w-3 h-3 bg-purple-300 rounded-full mr-2"></span>
+              管理栄養士
+            </li>
+            <li class="flex items-center">
+              <span class="inline-block w-3 h-3 bg-purple-300 rounded-full mr-2"></span>
               2025-03.Progateハッカソン(特別賞受賞)
             </li>
             <li class="flex items-center">
@@ -143,38 +153,52 @@
         </div>
       </div>
     </div>
-
     <!-- Project list -->
     <div id="projects" class="page" :class="{ 'active': activePage === 'projects' }">
       <div class="py-6">
         <h2 class="text-3xl font-bold text-purple-700 mb-6 monster-header">プロジェクト</h2>
-        <!-- フィルターボタン -->
-        <div class="flex space-x-2 mb-6">
-          <button @click="projectFilter = 'all'" 
-                  class="px-4 py-2 rounded-full text-sm transition-all duration-200"
-                  :class="projectFilter === 'all' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+        <!-- Tab navigation -->
+        <div class="mb-6 border-b border-gray-200">
+          <div class="flex overflow-x-auto">
+            <button @click="activeTab = 'develop'" class="px-6 py-3 text-sm font-medium transition-all duration-200 border-b-2" :class="activeTab === 'develop' ? 'text-purple-700 border-purple-500' : 'text-gray-500 border-transparent hover:text-purple-500 hover:border-purple-300'">
+              開発
+            </button>
+            <button @click="activeTab = 'security'" class="px-6 py-3 text-sm font-medium transition-all duration-200 border-b-2" :class="activeTab === 'security' ? 'text-purple-700 border-purple-500' : 'text-gray-500 border-transparent hover:text-purple-500 hover:border-purple-300'">
+              セキュリティ
+            </button>
+          </div>
+        </div>
+        <!-- Tab filter -->
+        <div x-show="activeTab === 'develop'" class="flex space-x-2 mb-6">
+          <button @click="devProjectFilter = 'all'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="devProjectFilter === 'all' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
             すべて
           </button>
-          <button @click="projectFilter = 'team'" 
-                  class="px-4 py-2 rounded-full text-sm transition-all duration-200"
-                  :class="projectFilter === 'team' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
-            チーム開発
+          <button @click="devProjectFilter = 'team'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="devProjectFilter === 'team' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            チーム
           </button>
-          <button @click="projectFilter = 'personal'" 
-                  class="px-4 py-2 rounded-full text-sm transition-all duration-200"
-                  :class="projectFilter === 'personal' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
-            個人開発
+          <button @click="devProjectFilter = 'personal'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="devProjectFilter === 'personal' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            個人
           </button>
-        </div>    
-        <div class="grid grid-cols-1 gap-6">
-          <!-- Project 01 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'team'"
-              @click="activePage = 'project-01'">
+        </div>        
+        <div x-show="activeTab === 'security'" class="flex space-x-2 mb-6">
+          <button @click="secProjectFilter = 'all'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'all' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            すべて
+          </button>
+          <button @click="secProjectFilter = 'hackthebox'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'hackthebox' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            HTB
+          </button>
+          <button @click="secProjectFilter = 'ctf'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'ctf' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            CTF
+          </button>
+        </div>
+        <!-- Develop contents -->
+        <div x-show="activeTab === 'develop'" class="grid grid-cols-1 gap-6">
+          <!-- dev-project-01 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'team'" @click="activePage = 'dev-project-01'">
             <div class="relative">
-              <img src="images/pending.png" alt="プロジェクト1" class="w-full h-48 object-cover">
+              <img src="images/pending.png" alt="dev" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                チーム開発
+                チーム
               </div>
             </div>
             <div class="p-5">
@@ -191,15 +215,12 @@
               </p>
             </div>
           </div>
-                    
-          <!-- Project 02 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'team'"
-              @click="activePage = 'project-02'">
+          <!-- dev-project-02 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'team'" @click="activePage = 'dev-project-02'">
             <div class="relative">
-              <img src="images/pending.png" alt="プロジェクト2" class="w-full h-48 object-cover">
+              <img src="images/pending.png" alt="dev" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                チーム開発
+                チーム
               </div>
             </div>
             <div class="p-5">
@@ -216,39 +237,33 @@
               </p>
             </div>
           </div>
-
-          <!-- Project 03 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'team'"
-              @click="activePage = 'project-03'">
+          <!-- dev-project-03 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'team'" @click="activePage = 'dev-project-03'">
             <div class="relative">
-              <img src="images/pending.png" alt="プロジェクト3" class="w-full h-48 object-cover">
+              <img src="images/pending.png" alt="dev" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                チーム開発
+                チーム
               </div>
             </div>
             <div class="p-5">
               <h3 class="text-xl font-semibold text-purple-700 mb-2">HexarkCTF.2026</h3>
-              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-pink-500 text-sm mb-3">2025</p>
               <div class="flex flex-wrap mb-3">
                 <span class="skill-tag">Next.js</span>
                 <span class="skill-tag">Go</span>
                 <span class="skill-tag">AWSService</span>
               </div>
               <p class="text-purple-800 text-sm">
-                RaidersCTF.2025から修正や問題追加などリニューアルしていく予定です。
+                RaidersCTF.2025に修正を加え、新たな挑戦をする予定です              
               </p>
             </div>
           </div>
-
-          <!-- Project 04 -->
-          <div class="project-card bg-white overflow-hidden" 
-              x-show="projectFilter === 'all' || projectFilter === 'personal'"
-              @click="activePage = 'project-04'">
+          <!-- dev-project-04 -->
+          <div class="project-card bg-white overflow-hidden" x-show="devProjectFilter === 'all' || devProjectFilter === 'personal'" @click="activePage = 'dev-project-04'">
             <div class="relative">
-              <img src="images/pending.png" alt="プロジェクト4" class="w-full h-48 object-cover">
+              <img src="images/pending.png" alt="dev" class="w-full h-48 object-cover">
               <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
-                個人開発
+                個人
               </div>
             </div>
             <div class="p-5">
@@ -263,21 +278,85 @@
               </p>
             </div>
           </div>
-          
+        </div>
+        <!-- Security contents -->
+        <div x-show="activeTab === 'security'" class="grid grid-cols-1 gap-6">
+          <!-- sec-project-01 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'ctf'" @click="activePage = 'sec-project-01'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                CTF
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">PicoCTF.2025</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                PicoCTF.2025年度のWriteup書きました。
+              </p>
+            </div>
+          </div>      
+          <!-- sec-project-02 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'hackthebox'" @click="activePage = 'sec-project-02'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                HTB
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">HTB.S7 - Code</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                HackTheBox Seasion7 Code(easy)を攻略しました。Season7が終わり次第Witeupを書きたいと思います。
+              </p>
+            </div>
+          </div>
+          <!-- sec-project-03 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'hackthebox'" @click="activePage = 'sec-project-03'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                HTB
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">HTB.S7 - UnderPass</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                HackTheBox Seasion7 UnderPass(easy)を攻略しました。Season7が終わり次第Witeupを書きたいと思います。
+              </p>
+            </div>
+          </div>
+          <!-- sec-project-04 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'hackthebox'" @click="activePage = 'sec-project-04'">
+            <div class="relative">
+              <img src="images/pending.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                HTB
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">HTB.S7 - Titanic</h3>
+              <p class="text-pink-500 text-sm mb-3">2025年</p>
+              <p class="text-purple-800 text-sm">
+                HackTheBox Seasion7 Titanic(easy)を攻略しました。Season7が終わり次第Witeupを書きたいと思います。
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <!-- Project-detail -->
-    <!-- Project-01 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-01' }">
+    <!-- Develop -->
+    <!-- dev-project-01 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-01' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> 戻る
         </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">RaidersCTF.2025</h2>
-        
+        <h2 class="text-2xl font-bold mb-4 text-purple-800">RaidersCTF.2025</h2>
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="Project01" class="w-full h-56 object-cover">
           <div class="p-6">
@@ -292,33 +371,29 @@
               <span class="skill-tag">ECR/ECS</span>
               <span class="skill-tag">Amplify</span>
               <span class="skill-tag">Route53</span>
-          </div>
-            
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">システム概要</h3>
-          <p class="text-gray-700 leading-relaxed mb-4">
-            認証は <span class="font-semibold">Cognito</span> を使用し、  
-            <span class="font-semibold">DynamoDB</span> でユーザー情報と問題情報を管理しています。  
-            <span class="font-semibold">Lambda</span> は認証や問題サーバーの起動・終了処理を担当し、  
-            <span class="font-semibold">StepFunctions</span> で問題サーバーの起動時間を管理します。  
-            <span class="font-semibold">ECS</span> は <span class="font-semibold">ECR</span> に保存した  
-            イメージからタスクを起動します。
-          </p>
-          
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">取り組んだ課題</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">システム概要</h3>
+            <p class="leading-relaxed mb-4 text-purple-800">
+              認証は <span class="font-semibold">Cognito</span> を使用し、  
+              <span class="font-semibold">DynamoDB</span> でユーザー情報と問題情報を管理しています。  
+              <span class="font-semibold">Lambda</span> は認証や問題サーバーの起動・終了処理を担当し、  
+              <span class="font-semibold">StepFunctions</span> で問題サーバーの起動時間を管理します。  
+              <span class="font-semibold">ECS</span> は <span class="font-semibold">ECR</span> に保存した  
+              イメージからタスクを起動します。
+            </p>
+            <h3 class="text-lg font-semibold mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside mb-4 text-purple-800">
               <li>認証を簡易的にする為にsignin/signupそれぞれ名前とパスワードのみ</li>
               <li>コスト最適の為にLunchTime15分に設定</li>
               <li>Dockerのみで複数分野の問題作成</li>
               <li>DynamoDBの特性を活かした管理</li>
               <li>モバイルレスポンシブ対応</li>
             </ul>
-            
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="#" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> GitHubを見る(準備中)
               </a>
-              <a href="https://raidersctf.com" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
+              <a href="https://raidersctf.com" class="bg-gray-200 text-purple-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fas fa-external-link-alt mr-2"></i> デモサイトを見る
               </a>
             </div>
@@ -326,16 +401,13 @@
         </div>
       </div>
     </div>
-
-    <!-- Project-02 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-02' }">
+    <!-- dev-project-02 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-02' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> 戻る
         </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">HexarkALG.2026</h2>
-        
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">HexarkALG.2026</h2>
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
           <div class="p-6">
@@ -350,10 +422,9 @@
               <span class="skill-tag">ECR/ECS</span>
               <span class="skill-tag">Amplify</span>
               <span class="skill-tag">Route53</span>
-            </div>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">システム概要</h3>
-            <p class="text-gray-700 leading-relaxed mb-4">
+            </div>  
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">システム概要</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
               認証は<span class="font-semibold">Cognito</span>を使用し、
               <span class="font-semibold">DynamoDB</span>でユーザー情報と問題情報を管理しています。
               <span class="font-semibold">S3</span>へのコード保存をトリガーに
@@ -361,22 +432,20 @@
               <span class="font-semibold">StepFunctions</span>でWebEditerの起動時間を管理します。
               <span class="font-semibold">ECS</span>は<span class="font-semibold">ECR</span>に保存した  
               イメージからタスクを起動します。
-              </p>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">取り組んだ課題</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            </p>
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
               <li>認証を簡易的にする為にsignin/signupそれぞれ名前とパスワードのみ</li>
               <li>コスト最適の為にEditerTime60分に設定</li>
               <li>EditerのCodeServerやLSPの利用</li>
               <li>複数言語のコード実行環境の作成</li>
               <li>DynamoDBの特性を活かした管理</li>
             </ul>
-            
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="#" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> GitHubを見る(準備中)
               </a>
-              <a href="#" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
+              <a href="#" class="bg-gray-200 text-purple-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fas fa-external-link-alt mr-2"></i> デモサイトを見る(準備中)
               </a>
             </div>
@@ -384,15 +453,13 @@
         </div>
       </div>
     </div>
-    <!-- Project-03 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-03' }">
+    <!-- dev-project-03 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-03' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> 戻る
         </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">HexarkCTF.2026</h2>
-        
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">HexarkCTF.2026</h2>
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
           <div class="p-6">
@@ -410,23 +477,20 @@
               <span class="skill-tag">Amplify</span>
               <span class="skill-tag">Route53</span>
             </div>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">システム概要</h3>
-            <p class="text-gray-700 leading-relaxed mb-4">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">システム概要</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
               RaidersCTF.2025からリニューアルし、Dockerで実現しづらかったWindows環境の問題を
               VPN経由でEC2上のVirtualBoxで対応予定。
             </p>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">取り組んだ課題</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
               <li>複雑な問題対応のためにVPN・EC2を利用</li>
             </ul>
-            
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="#" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> GitHubを見る(準備中)
               </a>
-              <a href="#" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
+              <a href="#" class="bg-gray-200 text-purple-800 py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fas fa-external-link-alt mr-2"></i> デモサイトを見る(準備中)
               </a>
             </div>
@@ -434,15 +498,13 @@
         </div>
       </div>
     </div>
-    <!-- Project-04 -->
-    <div id="project-detail" class="page" :class="{ 'active': activePage === 'project-04' }">
+    <!-- dev-project-04 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'dev-project-04' }">
       <div class="py-6">
         <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
           <i class="fas fa-arrow-left mr-2"></i> 戻る
         </button>
-        
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">SikkariApp</h2>
-        
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">SikkariApp</h2>
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
           <div class="p-6">
@@ -450,19 +512,16 @@
               <span class="skill-tag">Django</span>
               <span class="skill-tag">MySQL</span>
             </div>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">システム概要</h3>
-            <p class="text-gray-700 leading-relaxed mb-4">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">システム概要</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
               DjangoとMySQLのみでシンプルなシステムです。
               ローカルでの実装しか行っておりません。
               フレームワークの学習の為に行いました。
             </p>
-            
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">取り組んだ課題</h3>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
               <li>Djangoでの初の開発</li>
             </ul>
-            
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="https://github.com/towaos/oca-django-app" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i> GitHubを見る
@@ -472,21 +531,158 @@
         </div>
       </div>
     </div>
-
-
+    <!-- Security -->
+    <!-- sec-project-01 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-01' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> 戻る
+        </button>
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">PicoCTF.2025</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">ブログについて</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              Witeup等の記事はMediumで管理しております。
+            </p>
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">学び・感想</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              1年前のPicoCTF 2024では、General以外の分野にはほとんど対応できなかったことを覚えています。
+              しかし今年は、PicoCTFに加えてさまざまなCTFに参加し、実践を通じて経験を積んできた結果、WebやRevといった分野にもある程度取り組めるようになりました。
+              今後は全問解答を目標に、継続的に学習を進めていきたいと考えています。
+            </p>
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
+              <li>Ghidraの使い方</li>
+              <li>ハッシュ値の特定</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> Mediumを見る(待機中)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sec-project-02 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-02' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> 戻る
+        </button>
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">HTB.S7 - Code</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">ブログについて</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              Witeup等の記事はMediumで管理しております。
+              Season7終了次第、記事を更新したいと思います。
+            </p>  
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">学び・感想</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              今回の課題ではPythonの実行環境が用意されており、os.system や eval の使用を試みましたが、いずれもフィルタリングによりブロックされていました。
+              代替手段としてデバッグ用のコードに着目し、そこから複数のヒントを得ることができました。
+              この過程で、フィルタリングの仕組みやデバッグコードの活用方法に関する理解が深まり、有意義な学習機会となりました。
+            </p>
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
+              <li>Python環境のデバッグコードの存在</li>
+              <li>Python環境でのSQLiteコマンドの使い方</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> Mediumを見る(待機中)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sec-project-03 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-03' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> 戻る
+        </button>
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">HTB.S7 - UnderPass</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">ブログについて</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              Witeup等の記事はMediumで管理しております。
+              Season7終了次第、記事を更新したいと思います。
+            </p>  
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">学び・感想</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              今回の課題は一般的なTCPではなく、UDPを使用するSNMPに関する内容でした。
+              事前にHackTheBox Academyで関連分野を学習していたこともあり、初動のアプローチは比較的スムーズに進めることができました。
+              また、権限昇格の過程では mosh-server を実際に操作する機会があり、その脆弱性に関する理解を深めることができました
+            </p>
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
+              <li>SNMP調査コマンドの使い方</li>
+              <li>Gobusterコマンドの使い方</li>
+              <li>mosh/sshの違い</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> Mediumを見る(待機中)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sec-project-04 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-04' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> 戻る
+        </button>
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">HTB.S7 - Titanic</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/pending.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">ブログについて</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              Witeup等の記事はMediumで管理しております。
+              Season7終了次第、記事を更新したいと思います。
+            </p>  
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">学び・感想</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              今回の課題は、ディレクトリトラバーサルを起点としたものでした。GiteaやSQLiteの特性を活かしながら、段階的に侵入を進めていきました。
+              権限昇格に関しては、知識の浅い分野だったこともあり苦戦しましたが、その分新たな学びが多く、有意義な経験となりました。
+              まだ完全に理解できたとは言えないため、改めて再チャレンジし、理解を深めていきたいと考えています。
+            </p>
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
+              <li>ディレクトリトラバーサルの実行方法</li>
+              <li>ローカルでのSQLiteコマンドの使い方</li>
+              <li>共有ライブラリのプリロードを悪用した脆弱性の理解</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                <i class="fab fa-medium mr-2"></i> Mediumを見る(待機中)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Contact -->
     <div id="contact" class="page" :class="{ 'active': activePage === 'contact' }">
       <div class="py-6">
         <h2 class="text-3xl font-bold text-purple-700 mb-6 monster-header">お問い合わせ</h2>
-        
-        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-blue-200 relative">
+        <div class="bg-white rounded-3xl shadow-lg p-6 mb-6 border-4 border-blue-200 relative overflow-hidden">
           <div class="absolute -top-5 -right-5 w-16 h-16 bg-pink-300 rounded-full opacity-50 z-0"></div>
           <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-yellow-300 rounded-full opacity-40 z-0"></div>
-          
           <p class="text-purple-800 mb-8 relative text-center">
             ご質問など、お気軽にお問い合わせください。
           </p>
-          
           <div class="flex flex-col md:flex-row gap-6 items-center justify-center relative">
             <div class="bg-white rounded-2xl p-6 shadow-lg max-w-xs border-2 border-pink-200">
               <img src="images/qr-code.png" alt="QRコード" class="mx-auto mb-4 rounded-lg">
@@ -494,20 +690,16 @@
               <p class="text-sm text-center text-purple-600">フォロー&DMしてください</p>
             </div>
           </div>
-          
           <div class="relative mt-8 text-center">
             <h3 class="text-xl font-semibold text-purple-700 mb-4">SNSでもつながれます</h3>
             <div class="flex justify-center space-x-6">
-              <a href="https://github.com/towaos" class="text-blue-500 hover:text-blue-700 transform hover:scale-125 transition-all">
-                <i class="fab fa-github text-2xl"></i>
-              </a>
-              <a href="https://x.com/_towaos" class="text-pink-500 hover:text-pink-700 transform hover:scale-125 transition-all">
+              <a href="https://x.com/_towaos" class="text-blue-400 hover:text-blue-500 transform hover:scale-125 transition-all">
                 <i class="fab fa-twitter text-2xl"></i>
               </a>
-              <a href="https://www.linkedin.com/in/towaos" class="text-purple-500 hover:text-purple-700 transform hover:scale-125 transition-all">
+              <a href="https://www.linkedin.com/in/towaos" class="text-pink-400 hover:text-pink-500 transform hover:scale-125 transition-all">
                 <i class="fab fa-linkedin text-2xl"></i>
               </a>
-              <a href="https://www.instagram.com/_towaos" class="text-yellow-500 hover:text-yellow-700 transform hover:scale-125 transition-all">
+              <a href="https://www.instagram.com/_towaos" class="text-yellow-400 hover:text-yellow-500 transform hover:scale-125 transition-all">
                 <i class="fab fa-instagram text-2xl"></i>
               </a>
             </div>
@@ -516,7 +708,6 @@
       </div>
     </div>
   </main>
-
   <!-- footer -->
   <footer class="fixed bottom-0 left-0 w-full bg-white shadow-lg z-10 border-t-4 border-purple-200">
     <div class="container mx-auto">
