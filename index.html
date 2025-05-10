@@ -190,6 +190,9 @@
           <button @click="secProjectFilter = 'ctf'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'ctf' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
             CTF
           </button>
+          <button @click="secProjectFilter = 'VulnerabilityAssessments'" class="px-4 py-2 rounded-full text-sm transition-all duration-200" :class="secProjectFilter === 'VulnerabilityAssessments' ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-200'">
+            脆弱性診断
+          </button>
         </div>
         <!-- Develop contents -->
         <div x-show="activeTab === 'develop'" class="grid grid-cols-1 gap-6">
@@ -342,6 +345,22 @@
               <p class="text-pink-500 text-sm mb-3">2025年</p>
               <p class="text-purple-800 text-sm">
                 HackTheBox Seasion7 Titanic(easy)を攻略しました。Season7が終わり次第Witeupを書きたいと思います。
+              </p>
+            </div>
+          </div>
+          <!-- sec-project-05 -->
+          <div class="project-card bg-white overflow-hidden" x-show="secProjectFilter === 'all' || secProjectFilter === 'VulnerabilityAssessments'" @click="activePage = 'sec-project-05'">
+            <div class="relative">
+              <img src="images/vmt+oca.png" alt="sec" class="w-full h-48 object-cover">
+              <div class="absolute top-2 left-2 bg-purple-500 text-white text-xs py-1 px-2 rounded-full">
+                脆弱性診断
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-purple-700 mb-2">VMT、OCA大阪デザイン&テクノロジー専門学校と産学連携</h3>
+              <p class="text-pink-500 text-sm mb-3">2024年</p>
+              <p class="text-purple-800 text-sm">
+                VMT新入社員・中途採用者向けのトレーニングサイトをOCA向けに限定公開していただき、プロフェッショナルに近い条件で脆弱性診断業務を体験させていただきました。
               </p>
             </div>
           </div>
@@ -670,6 +689,42 @@
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <a href="https://towaos.medium.com" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
                 <i class="fab fa-medium mr-2"></i> Mediumを見る(待機中)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sec-project-05 -->
+    <div id="project-detail" class="page" :class="{ 'active': activePage === 'sec-project-05' }">
+      <div class="py-6">
+        <button class="flex items-center text-indigo-500 mb-4" @click="activePage = 'projects'">
+          <i class="fas fa-arrow-left mr-2"></i> 戻る
+        </button>
+        <h2 class="text-2xl font-bold  mb-4 text-purple-800">VMT、OCA大阪デザイン&テクノロジー専門学校と産学連携</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <img src="images/vmt+oca.png" alt="プロジェクト詳細" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">プロジェクトについて</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              秘密保持契約上の理由から詳細な情報は記載できませんが、脆弱性診断からレポート作成、報告まで一連の作業を経験させていただきました。
+            </p>  
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">学び・感想</h3>
+            <p class=" leading-relaxed mb-4 text-purple-800">
+              脆弱性の見つけ方やレポートの作成、診断結果の発表といった一連の流れは、自分にとってどれも新鮮で、最初は戸惑う場面も多くありました。
+              それでも、実際に手を動かしながら理解を深め、最終的には一定の成果を出すことができたのは、大きな自信につながりました。
+              特に、実際のツールを使って診断を行い、具体的なリスクを自分の目で確認できた経験は、今後セキュリティについて学びを深めていく上で、非常に貴重な土台になると感じています。
+              この経験を通して得た気づきや反省点を、次のステップにしっかりと活かしていきたいと思います。
+            </p>
+            <h3 class="text-lg font-semibold  mb-2 text-purple-800">取り組んだ課題</h3>
+            <ul class="list-disc list-inside  mb-4 text-purple-800">
+              <li>脆弱性の調査方法</li>
+              <li>レポート作成の手順</li>
+              <li>報告内容のまとめ方</li>
+            </ul>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+              <a href="https://www.nikkei.com/nkd/disclosure/tdnr/20240905581679/" class="bg-indigo-500 text-white py-2 px-4 rounded-md text-center flex items-center justify-center">
+                関連記事(日本経済新聞)
               </a>
             </div>
           </div>
